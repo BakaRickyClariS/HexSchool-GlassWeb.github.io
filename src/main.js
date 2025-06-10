@@ -1,4 +1,6 @@
+import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
+import Home from "./pages/home.js";
 
 // class SimpleRouter {
 //   /*************  ✨ Windsurf Command ⭐  *************/
@@ -41,6 +43,9 @@ import Navbar from "./components/Navbar.js";
 
 // 組件註冊
 customElements.define("my-navbar", Navbar);
+customElements.define("my-footer", Footer);
+
+customElements.define("my-home", Home);
 
 // 路由初始化
 // const router = new SimpleRouter("outlet");
