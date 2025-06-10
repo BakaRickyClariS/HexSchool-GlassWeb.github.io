@@ -1,4 +1,4 @@
-class SectionA extends HTMLElement {
+class HomeMain extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
@@ -11,7 +11,7 @@ class SectionA extends HTMLElement {
         <div class="absolute top-2/5 right-10 space-y-5 text-right">
           <p class="text-3xl">Promise-Desert 2020 早春系列</p>
           <h1 class="text-6xl">看得清，才能看得遠</h1>
-          <a class="text-white p-2 bg-[#AA0601] text-center" href="/"
+          <a class="text-white p-2 bg-[#AA0601] text-center" href="#/"
             >立即購買</a
           >
         </div>
@@ -21,7 +21,7 @@ class SectionA extends HTMLElement {
   }
 }
 
-class SectionB extends HTMLElement {
+class HmoeIntro extends HTMLElement {
   constructor() {
     super();
     const items = [
@@ -73,7 +73,7 @@ class SectionB extends HTMLElement {
   }
 }
 
-class SectionC extends HTMLElement {
+class HomeClassic extends HTMLElement {
   constructor() {
     super();
     const items = [
@@ -116,7 +116,7 @@ class SectionC extends HTMLElement {
   }
 }
 
-class SectionD extends HTMLElement {
+class HomeDesign extends HTMLElement {
   constructor() {
     super();
     const items = [
@@ -167,7 +167,7 @@ class SectionD extends HTMLElement {
   }
 }
 
-class SectionE extends HTMLElement {
+class HomeRecommend extends HTMLElement {
   constructor() {
     super();
     const items = [
@@ -229,7 +229,7 @@ class SectionE extends HTMLElement {
   }
 }
 
-class SectionF extends HTMLElement {
+class HomeContact extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
@@ -338,23 +338,23 @@ class SectionF extends HTMLElement {
   }
 }
 
-customElements.define("section-a", SectionA);
-customElements.define("section-b", SectionB);
-customElements.define("section-c", SectionC);
-customElements.define("section-d", SectionD);
-customElements.define("section-e", SectionE);
-customElements.define("section-f", SectionF);
+customElements.define("home-main", HomeMain);
+customElements.define("home-intro", HmoeIntro);
+customElements.define("home-classic", HomeClassic);
+customElements.define("home-design", HomeDesign);
+customElements.define("home-recommend", HomeRecommend);
+customElements.define("home-contact", HomeContact);
 
 class Home extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
-    <section-a></section-a>
-    <section-b></section-b>
-    <section-c></section-c>
-    <section-d></section-d>
-    <section-e></section-e>
-    <section-f></section-f>
+    <home-main></home-main>
+    <home-intro></home-intro>
+    <home-classic></home-classic>
+    <home-design></home-design>
+    <home-recommend></home-recommend>
+    <home-contact></home-contact>
     `;
   }
 }

@@ -1,6 +1,7 @@
 import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
 import Home from "./pages/home.js";
+import Shop from "./pages/shop.js";
 
 class SimpleRouter {
   /*************  ✨ Windsurf Command ⭐  *************/
@@ -46,6 +47,7 @@ customElements.define("my-navbar", Navbar);
 customElements.define("my-footer", Footer);
 
 customElements.define("my-home", Home);
+customElements.define("my-shop", Shop);
 
 // 路由初始化
 const router = new SimpleRouter("outlet");

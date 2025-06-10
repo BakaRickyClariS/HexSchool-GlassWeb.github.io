@@ -11,11 +11,11 @@ class Footer extends HTMLElement {
             <ul
               class="flex items-center flex-row space-x-5 lg:space-x-10 xl:space-x-15"
             >
-              <li><a href="/">首頁</a></li>
-              <li><a href="/shop">系列鏡框</a></li>
-              <li><a href="/location">門市據點</a></li>
-              <li><a href="/blog">部落格</a></li>
-              <li><a href="/problem">常見問題</a></li>
+              <li><a href="#/">首頁</a></li>
+              <li><a href="#/shop">系列鏡框</a></li>
+              <li><a href="#/location">門市據點</a></li>
+              <li><a href="#/blog">部落格</a></li>
+              <li><a href="#/problem">常見問題</a></li>
             </ul>
           </div>
           <div class="flex flex-row space-x-5 lg:space-x-10 xl:space-x-15">

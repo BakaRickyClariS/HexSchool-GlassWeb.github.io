@@ -7,7 +7,7 @@ class Navbar extends HTMLElement {
         class="flex flex-col md:flex-row md:justify-between md:items-center max-w-screen-xl mx-auto py-5 md:px-10 w-full"
       >
         <div class="flex pb-5 pl-5 md:pl-0 md:pb-0">
-          <a href="/">
+          <a href="#/">
             <img class="h-[48.57px]" src="images/logo-white.png" alt="logo" />
           </a>
         </div>
@@ -16,16 +16,16 @@ class Navbar extends HTMLElement {
             class="grid grid-cols-2 md:grid-cols-4 space-x-15 text-center text-white text-lg w-full"
           >
             <li class="border-2 border-white py-5 w-full md:border-none">
-              <a href="/shop">系列鏡框</a>
+              <a href="#/shop">系列鏡框</a>
             </li>
             <li class="border-2 border-white py-5 w-full md:border-none">
-              <a href="/location">門市據點</a>
+              <a href="#/location">門市據點</a>
             </li>
             <li class="border-2 border-white py-5 w-full md:border-none">
-              <a href="/blog">部落格</a>
+              <a href="#/blog">部落格</a>
             </li>
             <li class="border-2 border-white py-5 w-full md:border-none">
-              <a href="/problem">常見問題</a>
+              <a href="#/problem">常見問題</a>
             </li>
           </ul>
         </div>
