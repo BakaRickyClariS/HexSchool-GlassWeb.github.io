@@ -46,6 +46,7 @@ class SimpleRouter {
 customElements.define("my-navbar", Navbar);
 customElements.define("my-footer", Footer);
 
+// 頁面註冊
 customElements.define("my-home", Home);
 customElements.define("my-shop", Shop);
 
