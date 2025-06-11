@@ -39,6 +39,48 @@ class ShopNav extends HTMLElement {
 class ShopOptical extends HTMLElement {
   constructor() {
     super();
+    const items = [
+      {
+        name: "BJ41600S",
+        img: "images/product-1.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-2.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-3.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-4.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-1.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-2.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-3.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-4.png",
+        price: "3,490",
+      },
+    ];
     this.innerHTML = `
     <section class="flex">
       <div class="flex mx-auto w-full">
@@ -79,13 +121,15 @@ class ShopOptical extends HTMLElement {
         <div
           class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
         >
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
+        ${items
+          .map(
+            (item) => `<div class="text-center m-auto w-full text-left">
+            <img class="w-full block" src="${item.img}" alt="" />
             <div
               class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
             >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
+              <p class="block">${item.name}</p>
+              <p class="block text-[#AA0601]">NTD${item.price}</p>
             </div>
             <div class="flex flex-row justify-start gap-2">
               <div
@@ -95,125 +139,9 @@ class ShopOptical extends HTMLElement {
                 class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
               ></div>
             </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
-          </div>
-          <div class="text-center m-auto w-full text-left">
-            <img class="w-full block" src="images/product-1.png" alt="" />
-            <div
-              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
-            >
-              <p class="block">BJ41600S</p>
-              <p class="block text-[#AA0601]">NTD3,490</p>
-            </div>
-            <div class="flex flex-row justify-start gap-2">
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-              <div
-                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
-              ></div>
-            </div>
+          </div>`
+          )
+          .join("")}
           </div>
         </div>
       </div>
@@ -225,34 +153,101 @@ class ShopOptical extends HTMLElement {
 class ShopSunglasses extends HTMLElement {
   constructor() {
     super();
+    const items = [
+      {
+        name: "BJ41600S",
+        img: "images/product-7.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-8.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-9.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-10.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-11.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-12.png",
+        price: "3,490",
+      },
+    ];
     this.innerHTML = `
     <section class="flex">
+      <div class="flex mx-auto w-full">
+        <div class="grid grid-cols-2 w-full">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/product-header-sm-3.png"
+            />
+            <img
+              class="w-full block object-cover"
+              src="images/product-header-3.png"
+              alt=""
+            />
+          </picture>
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/product-header-sm-4.png"
+            />
+            <img
+              class="w-full block object-cover"
+              src="images/product-header-4.png"
+              alt=""
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+    <section class="flex">
       <div
-        class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
+        class="max-w-screen-xl flex flex-col justify-center mx-auto w-full py-30 px-10"
       >
-        <ul class="grid grid-cols-3 w-full gap-0">
-          <li class="border-l border-gray-400 last:border-l-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/optical"
-              >OPTICAL</a
+        <h1 class="text-center font-bold text-5xl block pb-5">
+          2020 NEW COLLECTION
+        </h1>
+        <h1 class="text-center text-4xl block pb-10">賽璐珞鈦金屬混合鏡框</h1>
+        <div
+          class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+        >
+        ${items
+          .map(
+            (item) => `<div class="text-center m-auto w-full text-left">
+            <img class="w-full block" src="${item.img}" alt="" />
+            <div
+              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
             >
-          </li>
-          <li class="border-x border-gray-400 last:border-x-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/sunglasses"
-              >SUNGLASSES</a
-            >
-          </li>
-          <li class="border-r border-gray-400 last:border-r-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/functional"
-              >FUNCTIONAL</a
-            >
-          </li>
-        </ul>
+              <p class="block">${item.name}</p>
+              <p class="block text-[#AA0601]">NTD${item.price}</p>
+            </div>
+            <div class="flex flex-row justify-start gap-2">
+              <div
+                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
+              ></div>
+              <div
+                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
+              ></div>
+            </div>
+          </div>`
+          )
+          .join("")}
+          </div>
+        </div>
       </div>
     </section>
     `;
@@ -262,34 +257,101 @@ class ShopSunglasses extends HTMLElement {
 class ShopFunctional extends HTMLElement {
   constructor() {
     super();
+    const items = [
+      {
+        name: "BJ41600S",
+        img: "images/product-1.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-3.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-5.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-7.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-9.png",
+        price: "3,490",
+      },
+      {
+        name: "BJ41600S",
+        img: "images/product-11.png",
+        price: "3,490",
+      },
+    ];
     this.innerHTML = `
     <section class="flex">
+      <div class="flex mx-auto w-full">
+        <div class="grid grid-cols-2 w-full">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/product-header-sm-1.png"
+            />
+            <img
+              class="w-full block object-cover"
+              src="images/product-header-1.png"
+              alt=""
+            />
+          </picture>
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="images/product-header-sm-4.png"
+            />
+            <img
+              class="w-full block object-cover"
+              src="images/product-header-4.png"
+              alt=""
+            />
+          </picture>
+        </div>
+      </div>
+    </section>
+    <section class="flex">
       <div
-        class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
+        class="max-w-screen-xl flex flex-col justify-center mx-auto w-full py-30 px-10"
       >
-        <ul class="grid grid-cols-3 w-full gap-0">
-          <li class="border-l border-gray-400 last:border-l-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/optical"
-              >OPTICAL</a
+        <h1 class="text-center font-bold text-5xl block pb-5">
+          2020 NEW FUNCTIONAL
+        </h1>
+        <h1 class="text-center text-4xl block pb-10">賽璐珞鈦金屬混合鏡框</h1>
+        <div
+          class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+        >
+        ${items
+          .map(
+            (item) => `<div class="text-center m-auto w-full text-left">
+            <img class="w-full block" src="${item.img}" alt="" />
+            <div
+              class="flex flex-row justify-between text-5xl md:text-3xl xl:text-2xl py-2"
             >
-          </li>
-          <li class="border-x border-gray-400 last:border-x-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/sunglasses"
-              >SUNGLASSES</a
-            >
-          </li>
-          <li class="border-r border-gray-400 last:border-r-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/functional"
-              >FUNCTIONAL</a
-            >
-          </li>
-        </ul>
+              <p class="block">${item.name}</p>
+              <p class="block text-[#AA0601]">NTD${item.price}</p>
+            </div>
+            <div class="flex flex-row justify-start gap-2">
+              <div
+                class="size-10 md:size-8 xl:size-6 bg-[#5F3E2D] rounded-lg md:rounded-md xl:rounded"
+              ></div>
+              <div
+                class="size-10 md:size-8 xl:size-6 bg-[#B75929] rounded-lg md:rounded-md xl:rounded"
+              ></div>
+            </div>
+          </div>`
+          )
+          .join("")}
+          </div>
+        </div>
       </div>
     </section>
     `;
@@ -384,14 +446,13 @@ class Shop extends HTMLElement {
     <div id="shop-outlet"></div>
     <shop-pagination></shop-pagination>
     `;
+    this.shopRouter = new SimpleRouter("shop-outlet");
+    this.shopRouter.addRoute("/shop/optical", "shop-optical");
+    this.shopRouter.addRoute("/shop/sunglasses", "shop-sunglasses");
+    this.shopRouter.addRoute("/shop/functional", "shop-functional");
+    this.shopRouter.resolve();
   }
 }
-
-// const shopRouter = new SimpleRouter("shop-outlet");
-// shopRouter.addRoute("/shop/optical", "shop-optical");
-// shopRouter.addRoute("/shop/sunglasses", "shop-sunglasses");
-// shopRouter.addRoute("/shop/functional", "shop-functional");
-// shopRouter.resolve();
 
 export default Shop;
 
@@ -417,9 +478,6 @@ function switchPage(page) {
       link.classList.add("bg-black", "text-white");
     }
   });
-
-  // 更新分頁內容（可選）
-  // document.getElementById('pageContent').innerHTML = `這是第 ${currentPage} 頁內容`;
 }
 window.switchPage = switchPage;
 window.switchPage(currentPage);

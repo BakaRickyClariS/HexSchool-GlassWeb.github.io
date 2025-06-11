@@ -16,7 +16,7 @@ class Navbar extends HTMLElement {
             class="grid grid-cols-2 md:grid-cols-4 space-x-15 text-center text-white text-lg w-full"
           >
             <li class="border-2 border-white py-5 w-full md:border-none">
-              <a href="#/shop">系列鏡框</a>
+              <a href="#/shop/optical">系列鏡框</a>
             </li>
             <li class="border-2 border-white py-5 w-full md:border-none">
               <a href="#/location">門市據點</a>
