@@ -1,8 +1,20 @@
-import SimpleRouter from "../components/Router.js";
-class ShopNav extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>GlassWeb</title>
+  </head>
+  <body>
+    <my-navbar></my-navbar>
+    <!-- <div id="outlet"></div> -->
     <section class="flex">
       <div
         class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
@@ -32,14 +44,6 @@ class ShopNav extends HTMLElement {
         </ul>
       </div>
     </section>
-    `;
-  }
-}
-
-class ShopOptical extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
     <section class="flex">
       <div class="flex mx-auto w-full">
         <div class="grid grid-cols-2 w-full">
@@ -218,88 +222,6 @@ class ShopOptical extends HTMLElement {
         </div>
       </div>
     </section>
-    `;
-  }
-}
-
-class ShopSunglasses extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
-    <section class="flex">
-      <div
-        class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
-      >
-        <ul class="grid grid-cols-3 w-full gap-0">
-          <li class="border-l border-gray-400 last:border-l-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/optical"
-              >OPTICAL</a
-            >
-          </li>
-          <li class="border-x border-gray-400 last:border-x-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/sunglasses"
-              >SUNGLASSES</a
-            >
-          </li>
-          <li class="border-r border-gray-400 last:border-r-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/functional"
-              >FUNCTIONAL</a
-            >
-          </li>
-        </ul>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class ShopFunctional extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
-    <section class="flex">
-      <div
-        class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
-      >
-        <ul class="grid grid-cols-3 w-full gap-0">
-          <li class="border-l border-gray-400 last:border-l-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/optical"
-              >OPTICAL</a
-            >
-          </li>
-          <li class="border-x border-gray-400 last:border-x-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/sunglasses"
-              >SUNGLASSES</a
-            >
-          </li>
-          <li class="border-r border-gray-400 last:border-r-1">
-            <a
-              class="block py-5 border-b-8 border-transparent focus:border-red-500"
-              href="#/shop/functional"
-              >FUNCTIONAL</a
-            >
-          </li>
-        </ul>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class ShopPagination extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
     <section class="flex">
       <div class="flex mx-auto w-full">
         <div class="flex w-full pb-20">
@@ -367,59 +289,7 @@ class ShopPagination extends HTMLElement {
         </div>
       </div>
     </section>
-    `;
-  }
-}
-
-customElements.define("shop-optical", ShopOptical);
-customElements.define("shop-sunglasses", ShopSunglasses);
-customElements.define("shop-functional", ShopFunctional);
-customElements.define("shop-pagination", ShopPagination);
-customElements.define("shop-nav", ShopNav);
-class Shop extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
-    <shop-nav></shop-nav>
-    <div id="shop-outlet"></div>
-    <shop-pagination></shop-pagination>
-    `;
-  }
-}
-
-// const shopRouter = new SimpleRouter("shop-outlet");
-// shopRouter.addRoute("/shop/optical", "shop-optical");
-// shopRouter.addRoute("/shop/sunglasses", "shop-sunglasses");
-// shopRouter.addRoute("/shop/functional", "shop-functional");
-// shopRouter.resolve();
-
-export default Shop;
-
-let currentPage = 1; // 預設在第一頁
-
-function switchPage(page) {
-  // 處理上一頁、下一頁
-  if (page === "prev" && currentPage > 1) {
-    currentPage--;
-  } else if (page === "next" && currentPage < 5) {
-    // 最多 5 頁
-    currentPage++;
-  } else if (typeof page === "number") {
-    currentPage = page;
-  }
-  console.log("CLick!!!!!!!!");
-
-  // 更新 active 樣式
-  document.querySelectorAll("#pagination li a").forEach((link) => {
-    link.classList.remove("bg-black", "text-white");
-    // 檢查 link.textContent 是否等於 currentPage
-    if (link.textContent.trim() == currentPage) {
-      link.classList.add("bg-black", "text-white");
-    }
-  });
-
-  // 更新分頁內容（可選）
-  // document.getElementById('pageContent').innerHTML = `這是第 ${currentPage} 頁內容`;
-}
-window.switchPage = switchPage;
-window.switchPage(currentPage);
+    <my-footer></my-footer>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
