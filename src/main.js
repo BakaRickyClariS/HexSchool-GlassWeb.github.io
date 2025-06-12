@@ -2,6 +2,7 @@ import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
 import Home from "./pages/home.js";
 import Shop from "./pages/shop.js";
+import Location from "./pages/location.js";
 import SimpleRouter from "./components/Router.js";
 
 // 組件註冊
@@ -11,6 +12,7 @@ customElements.define("my-footer", Footer);
 // 頁面註冊
 customElements.define("my-home", Home);
 customElements.define("my-shop", Shop);
+customElements.define("my-location", Location);
 
 // 路由初始化
 const router = new SimpleRouter("outlet");
@@ -21,5 +23,6 @@ router.addRoute("/shop/optical", "my-shop");
 router.addRoute("/shop/sunglasses", "my-shop");
 router.addRoute("/shop/functional", "my-shop");
 router.addRoute("/location", "my-location");
+router.addRoute("/location/branch", "my-location");
 router.addRoute("/blog", "my-blog");
 router.resolve();
