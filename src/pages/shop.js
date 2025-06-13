@@ -1,18 +1,23 @@
 import Pagination from "../components/Pagination.js";
 import SimpleRouter from "../components/Router.js";
 class ShopNav extends HTMLElement {
-  constructor() {
-    super();
+  connectedCallback() {
+    this.render();
+    window.addEventListener("hashchange", () => this.updateByUrl());
+    this.updateByUrl();
+  }
+  render() {
     this.innerHTML = `
     <section class="flex">
       <div
         class="max-w-screen-xl text-2xl text-center font-bold flex mx-auto w-full xl:px-10"
       >
-        <ul class="grid grid-cols-3 w-full gap-0">
+        <ul id="pages" class="grid grid-cols-3 w-full gap-0">
           <li class="border-l border-gray-400 last:border-l-1">
             <a
               class="block py-5 border-b-8 border-transparent focus:border-red-500"
               href="#/shop/optical"
+              id="OPTICAL"
               >OPTICAL</a
             >
           </li>
@@ -20,6 +25,7 @@ class ShopNav extends HTMLElement {
             <a
               class="block py-5 border-b-8 border-transparent focus:border-red-500"
               href="#/shop/sunglasses"
+              id="SUNGLASSES"
               >SUNGLASSES</a
             >
           </li>
@@ -27,6 +33,7 @@ class ShopNav extends HTMLElement {
             <a
               class="block py-5 border-b-8 border-transparent focus:border-red-500"
               href="#/shop/functional"
+              id="FUNCTIONAL"
               >FUNCTIONAL</a
             >
           </li>
@@ -34,6 +41,22 @@ class ShopNav extends HTMLElement {
       </div>
     </section>
     `;
+  }
+
+  updateByUrl() {
+    const hash = window.location.hash; // 例：#/shop/optical
+    const links = this.querySelectorAll("#pages a");
+
+    links.forEach((link) => {
+      // 只要 href 在 hash 裡（或完全相等），就加上樣式
+      if (hash === link.getAttribute("href")) {
+        link.classList.remove("border-transparent");
+        link.classList.add("border-red-500");
+      } else {
+        link.classList.add("border-transparent");
+        link.classList.remove("border-red-500");
+      }
+    });
   }
 }
 

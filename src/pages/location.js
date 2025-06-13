@@ -13,7 +13,7 @@ class LocationNav extends HTMLElement {
         >
           <h1 class="pl-2">門市據點</h1>
         </div>
-        <div class="flex flex-row items-center gap-5 justify-start" id="select">
+        <div class="flex flex-col md:flex-row items-center gap-5 justify-start w-full" id="select">
           <p id="sel-title" class="block text-2xl">${
             locatInfos[0].selectName
           }</p>

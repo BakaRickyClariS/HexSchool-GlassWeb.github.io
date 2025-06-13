@@ -55,12 +55,14 @@ class Footer extends HTMLElement {
             />
           </div>
         </div>
-        <div class="py-10">
+        <div class="py-10 flex flex-col md:flex-row md:justify-between">
           <p class="flex text-3xl md:text-base">
             Copyright © 2020 Glasses.All rights reserved.
           </p>
-          <p class="flex md:hidden text-3xl">隱私權政策</p>
-          <p class="flex md:hidden text-3xl">服務條款</p>
+          <div class="flex flex-col md:flex-row md:gap-15">
+          <p class="flex text-3xl md:text-base">隱私權政策</p>
+          <p class="flex text-3xl md:text-base">服務條款</p>
+          </div>
         </div>
       </div>
     </footer>

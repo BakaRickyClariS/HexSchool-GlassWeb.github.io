@@ -1,6 +1,14 @@
 class Pagination extends HTMLElement {
   constructor() {
     super();
+    this.currentPage = 1;
+  }
+  connectedCallback() {
+    this.render();
+    this.bindEvents();
+    this.update(1);
+  }
+  render() {
     this.innerHTML = `
     <section class="flex">
       <div class="flex mx-auto w-full">
@@ -13,7 +21,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white active:bg-black active:text-white"
                 href="#prev"
-                onclick="switchPage('prev'); event.preventDefault();"
+                data-page="prev"
                 >上一頁</a
               >
             </li>
@@ -21,7 +29,8 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white focus:bg-black focus:text-white"
                 href="#1"
-                onclick="switchPage(1); event.preventDefault();"
+                id="page1"
+                data-page="1"
                 >1</a
               >
             </li>
@@ -29,7 +38,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white focus:bg-black focus:text-white"
                 href="#2"
-                onclick="switchPage(2); event.preventDefault();"
+                data-page="2"
                 >2</a
               >
             </li>
@@ -37,7 +46,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white focus:bg-black focus:text-white"
                 href="#3"
-                onclick="switchPage(3); event.preventDefault();"
+                data-page="3"
                 >3</a
               >
             </li>
@@ -45,7 +54,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white focus:bg-black focus:text-white"
                 href="#4"
-                onclick="switchPage(4); event.preventDefault();"
+                data-page="4"
                 >4</a
               >
             </li>
@@ -53,7 +62,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white focus:bg-black focus:text-white"
                 href="#5"
-                onclick="switchPage(5); event.preventDefault();"
+                data-page="5"
                 >5</a
               >
             </li>
@@ -61,7 +70,7 @@ class Pagination extends HTMLElement {
               <a
                 class="border py-5 px-6 hover:bg-black hover:text-white active:bg-black active:text-white"
                 href="#next"
-                onclick="switchPage('next'); event.preventDefault();"
+                data-page="next"
                 >下一頁</a
               >
             </li>
@@ -71,32 +80,38 @@ class Pagination extends HTMLElement {
     </section>
     `;
   }
+  bindEvents() {
+    this.querySelectorAll("#pagination a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const page = link.getAttribute("data-page");
+        this.update(isNaN(page) ? page : Number(page));
+      });
+    });
+  }
+
+  update(page) {
+    if (page === "prev" && this.currentPage > 1) {
+      this.currentPage--;
+    } else if (page === "next" && this.currentPage < 5) {
+      this.currentPage++;
+    } else if (typeof page === "number") {
+      this.currentPage = page;
+    }
+
+    const defaultPage = this.querySelector("#page1");
+    if (page === 1) {
+      defaultPage.classList.add("text-white", "bg-black");
+    } else {
+      defaultPage.classList.remove("text-white", "bg-black");
+    }
+    this.querySelectorAll("#pagination li a").forEach((link) => {
+      link.classList.remove("bg-black", "text-white");
+      if (link.textContent.trim() == this.currentPage) {
+        link.classList.add("bg-black", "text-white");
+      }
+    });
+  }
 }
 
 export default Pagination;
-
-let currentPage = 1; // 預設在第一頁
-
-function switchPage(page) {
-  // 處理上一頁、下一頁
-  if (page === "prev" && currentPage > 1) {
-    currentPage--;
-  } else if (page === "next" && currentPage < 5) {
-    // 最多 5 頁
-    currentPage++;
-  } else if (typeof page === "number") {
-    currentPage = page;
-  }
-  console.log("CLick!!!!!!!!");
-
-  // 更新 active 樣式
-  document.querySelectorAll("#pagination li a").forEach((link) => {
-    link.classList.remove("bg-black", "text-white");
-    // 檢查 link.textContent 是否等於 currentPage
-    if (link.textContent.trim() == currentPage) {
-      link.classList.add("bg-black", "text-white");
-    }
-  });
-}
-window.switchPage = switchPage;
-window.switchPage(currentPage);
