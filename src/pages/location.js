@@ -87,7 +87,7 @@ class LocationItem extends HTMLElement {
           .map(
             (
               item
-            ) => `<div id="${item.id}" class="w-full border-1 border-gray-300">
+            ) => `<div id="${item.id}" name="shopLocat" class="w-full border-1 border-gray-300">
             <img class="object-cover" src="${item.img}" alt="" />
             <div class="w-full text-2xl">
               <h1 class="text-3xl w-full py-3 px-7 border-b border-gray-300">
@@ -121,7 +121,6 @@ class LocationItem extends HTMLElement {
           </div>`
           )
           .join("")}
-          
         </div>
       </div>
     </section>
@@ -159,11 +158,11 @@ class GoogleMapComponent extends HTMLElement {
 
     this.innerHTML = `
       <div class="google-map-container bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="aspect-video w-full">
+        <div class="w-full h-full">
           <iframe 
             src="${mapUrl}"
             class="w-full h-full"
-            style="min-height: 300px;"
+            style="min-height: 600px;"
             allowfullscreen
             loading="lazy"
             title="${this.storeName} 地圖位置">
@@ -209,7 +208,7 @@ function addGoogleMap(parentElement, store) {
   mapComponent.updateMap(store.name, store.location);
 
   // 加入到頁面
-  const itemComponent = parentElement.querySelector("location-item");
+  const itemComponent = parentElement.querySelector('[name="shopLocat"]');
   if (itemComponent) {
     itemComponent.insertAdjacentElement("afterend", mapComponent);
   }
@@ -313,8 +312,6 @@ class Location extends HTMLElement {
             .map((item) => `<option value="${item.name}">${item.name}</option>`)
             .join("")}`;
       }
-      newItemInfo.forEach(() => {});
-
       // 只更新需要變動的部分，不再呼叫 locatInit
       updateItemComponent(this, newItemInfo);
     });
