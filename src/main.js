@@ -29,7 +29,6 @@ router.addRoute("/shop/optical", "my-shop");
 router.addRoute("/shop/sunglasses", "my-shop");
 router.addRoute("/shop/functional", "my-shop");
 router.addRoute("/location", "my-location");
-router.addRoute("/location/branch", "my-location");
 router.addRoute("/blog", "my-blog");
 router.addRoute("/blog/article", "my-blog");
 router.resolve();

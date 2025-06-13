@@ -250,7 +250,7 @@ class Location extends HTMLElement {
         tel: "(02)000-1234",
         schedule: "10:00-21:00",
         location: "台北市中山區南京東路25巷2-1號",
-        link: "#/location/branch",
+        link: "#/location",
       },
       {
         id: "台北市",
@@ -259,7 +259,7 @@ class Location extends HTMLElement {
         tel: "(02)000-2345",
         schedule: "10:00-21:00",
         location: "台北市中正區復興南路 132-1 號",
-        link: "#/location/branch",
+        link: "#/location",
       },
       {
         id: "台中市",
@@ -268,7 +268,7 @@ class Location extends HTMLElement {
         tel: "(02)000-1234",
         schedule: "10:00-21:00",
         location: "台中市清水區經南一路 23 號 8 樓",
-        link: "#/location/branch",
+        link: "#/location",
       },
       {
         id: "高雄市",
@@ -277,7 +277,7 @@ class Location extends HTMLElement {
         tel: "(07)000-2345",
         schedule: "10:00-21:00",
         location: "高雄市苓雅區中正路 38 號 12 樓",
-        link: "#/location/branch",
+        link: "#/location",
       },
       {
         id: "高雄市",
@@ -286,7 +286,7 @@ class Location extends HTMLElement {
         tel: "(07)000-1234",
         schedule: "10:00-21:00",
         location: "高雄市前鎮區中華一路 63 號 6 樓",
-        link: "#/location/branch",
+        link: "#/location",
       },
     ];
 

@@ -12,16 +12,16 @@ class BlogNavbar extends HTMLElement {
             class="grid grid-cols-4 space-x-4 text-center md:text-left text-white text-lg w-full"
           >
             <li class="py-3 w-full m-0">
-              <a href="#/shop/optical">最新消息</a>
+              <a href="#/blog">最新消息</a>
             </li>
             <li class="py-3 w-full m-0">
-              <a href="#/location">特別企劃</a>
+              <a href="#/blog">特別企劃</a>
             </li>
             <li class="py-3 w-full m-0">
               <a href="#/blog">新品上市</a>
             </li>
             <li class="py-3 w-full m-0">
-              <a href="#/problem">鏡框小知識</a>
+              <a href="#/blog">鏡框小知識</a>
             </li>
           </ul>
         </div>
