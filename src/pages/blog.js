@@ -1,361 +1,236 @@
-class SectionA extends HTMLElement {
+import SimpleRouter from "../components/Router.js";
+class BlogNavbar extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
-    <section
-      class="flex bg-[url('images/home-header-sm.png')] xl:bg-[url('images/home-header.png')] h-[787px] bg-cover bg-center"
-    >
-      <div
-        class="max-w-screen-xl text-[#650300] font-bold flex relative mx-auto w-full"
+    <section class="bg-[#650300]">
+      <nav
+        class="flex flex-col md:flex-row md:justify-between md:items-center max-w-screen-xl mx-auto md:px-15 w-full"
       >
-        <div class="absolute top-2/5 right-10 space-y-5 text-right">
-          <p class="text-3xl">Promise-Desert 2020 早春系列</p>
-          <h1 class="text-6xl">看得清，才能看得遠</h1>
-          <a class="text-white p-2 bg-[#AA0601] text-center" href="/"
-            >立即購買</a
+        <div class="flex w-full md:w-3/5">
+          <ul
+            class="grid grid-cols-4 space-x-4 text-center md:text-left text-white text-lg w-full"
           >
+            <li class="py-3 w-full m-0">
+              <a href="#/shop/optical">最新消息</a>
+            </li>
+            <li class="py-3 w-full m-0">
+              <a href="#/location">特別企劃</a>
+            </li>
+            <li class="py-3 w-full m-0">
+              <a href="#/blog">新品上市</a>
+            </li>
+            <li class="py-3 w-full m-0">
+              <a href="#/problem">鏡框小知識</a>
+            </li>
+          </ul>
         </div>
-      </div>
+        <div class="pb-5 pl-5 md:pl-0 md:pb-0 hidden md:flex">
+          <a href="#/">
+            <img class="h-[29px] invert" src="images/ic-search.svg" alt="logo" />
+          </a>
+        </div>
+      </nav>
     </section>
     `;
   }
 }
 
-class SectionB extends HTMLElement {
+class BlogItem extends HTMLElement {
   constructor() {
     super();
-    const items = [
+    const blogItem = [
       {
-        img: "images/home-section2-1.png",
-        title: "單一價格",
-        desc: "無論任何度數皆不需追加費用即可擁有適合自己的薄型球面鏡片。",
+        title: "情人特別企劃",
+        subTitle: "2020 Valentine’s Special",
+        img: "images/blog-1.png",
+        date: "2020/02/14",
+        content:
+          "一年一度西洋情人節即將到來，我們推出最強「情人節企劃」，為這個甜蜜的節日加溫。偶爾跟另一半來個低調情侶單品，結合彼此喜好、找出合適框型款式，在這個春夏輕鬆搭出屬於你們的甜蜜默契！ 即日起至2/16為止，不論是熱戀情侶、自由自在一個人或是老夫老妻，只要從未來過本店的新朋友，綁定官方LINE好友，都可享專屬優惠⋯⋯",
       },
       {
-        img: "images/home-section2-2.png",
-        title: "20 分鐘即可取件",
-        desc: "為了您的寶貴時間著想，以豐富專業知識與技術將結帳到交件的時間縮減至最快 20 分鐘即可完成。",
+        title: "街頭潮人訪問",
+        subTitle: "Street Interview",
+        img: "images/blog-2.png",
+        date: "2020/02/02",
+        content:
+          "炎熱的夏季裡，衣著選擇經常希望以簡潔的風格為主，但有時單純只穿搭 T 恤或短袖開襟襯衫，又覺得整體造型度有點不足嗎？那麼不妨可以透過「配件」，為穿搭點綴出與眾不同的視覺層次，而本季有哪些必備的配件系列呢？一起從以下推薦的 3 款單品，讓你瞬間帥氣爆棚散發型男品味⋯⋯",
       },
       {
-        img: "images/home-section2-3.png",
-        title: "安心售後服務",
-        desc: "我們提供長達 120 天的保固售後服務，不限會員資格皆享有免費深層保養及專業維修服務。",
+        title: "春季新品上市",
+        subTitle: "New Selection",
+        img: "images/blog-3.png",
+        date: "2020/02/02",
+        content:
+          "2020 年春季的光學眼鏡跳脫前幾季流行的復古框型，比起圓框與小方框等文青風格，偏向個性款式的眉框眼鏡成為這一季的耀眼之星。除了經典款式如黑色眉框落在長方形鏡面上，眉宇之間露出專業莊重的特殊氣質，包覆在圓形鏡框上的貓眼型眉框則是強調出特殊設計感，俐落時髦的造型搭配一件簡單的白襯衫就相當有型，是喜愛時尚質感人士絕不能錯過的必備款式⋯⋯",
       },
       {
-        img: "images/home-section2-4.png",
-        title: "關於鏡片",
-        desc: "使用世界知名頂級品牌，抗UV、防汙鍍膜薄型非球面鏡片。",
-      },
-    ];
-    this.innerHTML = `
-    <section class="flex bg-[#FBF2F2]">
-      <div
-        class="max-w-screen-xl text-[#650300] font-bold flex flex-col mx-auto w-full py-20 px-10"
-      >
-        <h1 class="text-center text-5xl block pb-15">用專業的心，做專業的事</h1>
-        <div
-          class="flex-row gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 space-y-5"
-        >
-          ${items
-            .map(
-              (item) => `
-      <div class="flex flex-col items-center w-full space-y-2 mx-auto">
-        <img class="w-[83.83px]" src="${item.img}" alt="" />
-        <h2>${item.title}</h2>
-        <p>${item.desc}</p>
-      </div>
-    `
-            )
-            .join("")}
-        </div>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class SectionC extends HTMLElement {
-  constructor() {
-    super();
-    const items = [
-      {
-        img: "images/home-section3-1.png",
-        title: "OPTICAL",
+        title: "設計師獨享鏡框優惠",
+        subTitle: "Sales for Designer",
+        img: "images/blog-4.png",
+        date: "2020/01/18",
+        content:
+          "2020 年春季的光學眼鏡跳脫前幾季流行的復古框型，比起圓框與小方框等文青風格，偏向個性款式的眉框眼鏡成為這一季的耀眼之星。除了經典款式如黑色眉框落在長方形鏡面上，眉宇之間露出專業莊重的特殊氣質，包覆在圓形鏡框上的貓眼型眉框則是強調出特殊設計感，俐落時髦的造型搭配一件簡單的白襯衫就相當有型，是喜愛時尚質感人士絕不能錯過的必備款式⋯⋯",
       },
       {
-        img: "images/home-section3-2.png",
-        title: "SUNGLASSES",
-      },
-      {
-        img: "images/home-section3-3.png",
-        title: "FUNCTIONAL",
+        title: "抵抗夏日大作戰",
+        subTitle: "Summer Special",
+        img: "images/blog-5.png",
+        date: "2019/08/07",
+        content:
+          "2020 年春季的光學眼鏡跳脫前幾季流行的復古框型，比起圓框與小方框等文青風格，偏向個性款式的眉框眼鏡成為這一季的耀眼之星。除了經典款式如黑色眉框落在長方形鏡面上，眉宇之間露出專業莊重的特殊氣質，包覆在圓形鏡框上的貓眼型眉框則是強調出特殊設計感，俐落時髦的造型搭配一件簡單的白襯衫就相當有型，是喜愛時尚質感人士絕不能錯過的必備款式⋯⋯",
       },
     ];
     this.innerHTML = `
     <section class="flex">
       <div
-        class="max-w-screen-xl text-[#650300] font-bold flex flex-col mx-auto w-full py-30 px-10"
+        class="max-w-screen-xl flex flex-col items-start mx-auto w-full px-5 pt-20 pb-10 gap-10"
       >
-        <h1 class="text-center text-5xl block pb-15">經典系列鏡框</h1>
         <div
-          class="flex flex-col space-x-5 flex-wrap xl:flex-row space-y-5 gap-5"
+          class="border-[#AA0601] border-l-10 text-center font-bold text-4xl md:text-5xl xl:text-6xl"
         >
-        ${items
-          .map(
-            (item) => `
-          <div class="flex flex-col items-center max-w-[380px] space-y-2 mx-auto">
-            <img class="w-[416px]" src="${item.img}" alt="" />
-            <h1 class="text-5xl text-[#AA0601]">${item.title}</h1>
-          </div>
-        `
-          )
-          .join("")}
+          <h1 class="pl-2">部落格</h1>
         </div>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class SectionD extends HTMLElement {
-  constructor() {
-    super();
-    const items = [
-      {
-        img: "images/home-section4-1.png",
-        imgSm: "images/home-section4-1-sm.png",
-        title: "DOUBLE A+",
-      },
-      {
-        img: "images/home-section4-2.png",
-        imgSm: "images/home-section4-2-sm.png",
-        title: "YOUTH",
-      },
-    ];
-    this.innerHTML = `
-    <section class="flex bg-[url('images/index-bg.png')] bg-cover bg-center">
-      <div
-        class="max-w-screen-xl text-white font-bold flex flex-col justify-center mx-auto w-full px-10 py-30"
-      >
-        <h1 class="text-center text-5xl block pb-15">聯名設計鏡框</h1>
-        <div
-          class="flex flex-row w-full flex-wrap lg:flex-nowrap gap-10 lg:gap-0"
-        >
-        ${items
-          .map(
-            (item) => `
-          <div class="text-center m-auto">
-            <picture>
-              <source
-                media="(max-width: 1024px)"
-                srcset="${item.imgSm}"
-              />
-              <img
-                class="w-full block"
-                src="${item.img}"
-                alt=""
-              />
-            </picture>
-            <h1 class="text-5xl py-5 w-full text-[#AA0601] bg-white">${item.title}</h1>
-          </div>
-        `
-          )
-          .join("")}
-        </div>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class SectionE extends HTMLElement {
-  constructor() {
-    super();
-    const items = [
-      {
-        img: "images/home-section5-1.png",
-        name: "Jessy",
-        desc: "眼鏡品質優良，下次還會想來這邊購買！",
-        date: "2021/06/20",
-      },
-      {
-        img: "images/home-section5-2.png",
-        name: "凱倫",
-        desc: "做工細緻、鏡架很輕盈，待久也不會覺得有負擔，推薦給大家！",
-        date: "2021/04/18",
-      },
-      {
-        img: "images/home-section5-3.png",
-        name: "悠悠",
-        desc: "謝謝客服人員的詳細回答，成功買到了喜歡的眼鏡，下次會再回購！",
-        date: "2020/12/25",
-      },
-      {
-        img: "images/home-section5-4.png",
-        name: "JeKyuanssy",
-        desc: "服務很好，品質沒有任何問題，非常喜歡。",
-        date: "2020/10/31",
-      },
-    ];
-    this.innerHTML = `
-    <section class="flex">
-      <div
-        class="max-w-screen-xl font-bold flex flex-col justify-center mx-auto w-full py-30 px-10"
-      >
-        <h1 class="text-center text-[#AA0601] text-5xl block pb-15">
-          顧客推薦
-        </h1>
-        <div
-          class="w-full gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
-        >
-        ${items
-          .map(
-            (
-              item
-            ) => `<div class="text-center m-auto shadow-xl w-full text-left">
-            <img class="w-full block" src="${item.img}" alt="" />
-            <div class="p-5">
-              <p class="pb-3">${item.name}</p>
-              <p class="pb-10">${item.desc}</p>
-              <p class="text-[#707070]">${item.date}</p>
-            </div>
-          </div>`
-          )
-          .join("")}
-          </div>
-        </div>
-      </div>
-    </section>
-    `;
-  }
-}
-
-class SectionF extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
-    <section class="flex bg-[#FBF2F2]">
-      <div
-        class="max-w-screen-sm font-bold flex flex-col justify-center items-center mx-auto w-full py-30 px-10"
-      >
-        <h1 class="text-center text-[#AA0601] text-5xl block pb-15">
-          聯絡我們
-        </h1>
-        <p class="block text-lg pb-10">
-          我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。
-        </p>
-        <div class="flex w-full">
-          <form class="space-y-6 w-full">
-            <fieldset class="space-y-4">
-              <legend class="sr-only">聯絡表單說明</legend>
-
-              <div>
-                <label
-                  for="name"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                  >姓名</label
-                >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="form-input w-full border-solid border-2 border-black"
-                  placeholder="陳小明"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  for="tel"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                  >聯絡電話</label
-                >
-                <input
-                  type="tel"
-                  id="tel"
-                  name="tel"
-                  class="form-input w-full border-solid border-2 border-black"
-                  placeholder="0912-345-678"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                  >電子郵件</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-input w-full border-solid border-2 border-black"
-                  placeholder="example@email.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  for="text"
-                  class="block text-sm font-medium text-gray-700 mb-2"
-                  >意見反應</label
-                >
-                <textarea
-                  id="text"
-                  name="text"
-                  class="form-input w-full h-32 border-solid border-2 border-black"
-                  placeholder="請輸入您的意見..."
-                  required
-                ></textarea>
-              </div>
-
-              <div class="flex items-center space-x-2 mt-6">
-                <input
-                  type="checkbox"
-                  id="checkbox"
-                  name="checkbox"
-                  class="form-checkbox h-5 w-5 text-blue-600 rounded"
-                  required
-                />
-                <label for="checkbox" class="text-sm text-gray-600">
-                  我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。
-                </label>
-              </div>
-            </fieldset>
-            <button
-              type="submit"
-              class="w-full bg-[#AA0601] hover:bg-blue-700 text-white font-medium py-3 px-6 transition-colors"
+        <div>
+          <ul>
+            ${blogItem
+              .map(
+                (
+                  item
+                ) => `<li class="m-auto w-full text-left pb-15 flex flex-col md:flex-row md:gap-7">
+            <img class="w-full md:w-1/2 block object-cover" src="${item.img}" alt="" />
+            <div class="flex flex-col">
+            <div
+              class="flex flex-col font-bold py-2"
             >
-              確認送出
-            </button>
-          </form>
+              <h1 class="block text-5xl md:text-3xl text-[#650300] pt-5 pb-3">${item.title}</h1>
+              <span class="w-full flex flex-row justify-between text-3xl md:text-xl"><p class="block">${item.subTitle}</p><p class="block text-gray-400">${item.date}</p></span>
+              
+            </div>
+            <div class="md:flex hidden relative text-gray-400 ">
+                <p class="pt-3">${item.content}</p>
+                <a
+                class="xl:uppercase absolute right-0 bottom-0 xl:bottom-[-140px] xl:text-[#650300] xl:text-3xl xl:font-extrabold"
+                href="#/blog/article"
+                >more</a
+              >
+            </div>
+            </div>
+            
+          </li>`
+              )
+              .join("")}
+          </ul>
         </div>
+      </div>
+    </section>
+    <my-pagination></my-pagination>
+    `;
+  }
+}
+class BlogArticle extends HTMLElement {
+  constructor() {
+    super();
+    const blogArticle = {
+      title: "情人特別企劃",
+      subTitle: "2020 Valentine’s Special",
+      date: "2020/02/14",
+      tag: [
+        "special",
+        "sale",
+        "new_item",
+        "interview",
+        "trivia",
+        "news",
+        "event",
+      ],
+      content: [
+        {
+          img: "images/blogpage-1.png",
+          text: "一年一度西洋情人節即將到來，我們推出最強「情人節企劃」，為這個甜蜜的節日加溫。 本次拍攝的鏡框款式與 NEEDS CLASSIC 聯名設計款，偶爾跟另一半來個低調情侶單品，結合彼此喜好、找出合適框型款式，在這個春夏輕鬆搭出屬於你們的甜蜜默契！",
+        },
+        {
+          img: "images/blogpage-2.png",
+          text: "一年一度西洋情人節即將到來，我們推出最強「情人節企劃」，為這個甜蜜的節日加溫。 本次拍攝的鏡框款式與 NEEDS CLASSIC 聯名設計款，偶爾跟另一半來個低調情侶單品，結合彼此喜好、找出合適框型款式，在這個春夏輕鬆搭出屬於你們的甜蜜默契！",
+        },
+        {
+          img: "images/blogpage-3.png",
+          text: "一年一度西洋情人節即將到來，我們推出最強「情人節企劃」，為這個甜蜜的節日加溫。 本次拍攝的鏡框款式與 NEEDS CLASSIC 聯名設計款，偶爾跟另一半來個低調情侶單品，結合彼此喜好、找出合適框型款式，在這個春夏輕鬆搭出屬於你們的甜蜜默契！",
+        },
+        {
+          img: "images/blogpage-4.png",
+          text: "2/14(五)-2/20(日) 至本店單筆消費滿2980元, 就送情人節限定眼鏡盒1個 期間優惠還有~~持他牌鏡框更換鏡片 薄型非球面鏡片折300元 濾藍光鏡片折500元 快快帶上另一半 讓彼此每一次睜開眼，都被愛的視線包圍!",
+        },
+      ],
+    };
+    this.innerHTML = `
+    <section class="flex">
+      <div
+        class="max-w-screen-xl flex flex-row items-start mx-auto w-full px-5 md:px-15 pt-5 pb-10 gap-10"
+      >
+        <div class="flex flex-col w-full md:w-4/5">
+        <div
+          class="text-left font-bold"
+        >
+        <p class="block font-normal text-2xl md:text-base">首頁 / 部落格 / 特別企劃 / <span class="text-[#AA0601]">情人特別企劃</span></p>
+        <h1 class="block text-2xl py-1 px-2 text-[#AA0601] font-extrabold">#special #event</h1>
+          <h1 class="block text-4xl md:text-5xl pt-5">情人特別企劃</h1>
+          <h1 class="block text-2xl py-3">2020 Valentine’s Special</h1>
+        </div>
+          <ul>
+            ${blogArticle.content
+              .map(
+                (
+                  item
+                ) => `<li class="m-auto w-full text-left pb-10 flex flex-col gap-3">
+            <img class="w-full block object-cover" src="${item.img}" alt="" />
+            <p class="">${item.text}</p>
+            
+          </li>`
+              )
+              .join("")}
+          </ul>
+        </div>
+      <div class="hidden md:flex md:flex-col w-1/5 font-extrabold text-[#AA0601]">
+        <div
+          class="flex items-center"
+        >
+        <img class="block h-10" src="images/ic-tag-abel.png" alt="" />
+          <h1 class=" text-3xl">TAGS</h1>
+        </div>
+        <div
+          class="flex flex-row flex-wrap"
+        >${blogArticle.tag
+          .map(
+            (item) => `
+          <h1 class="text-2xl py-1 px-2">#${item}</h1>
+          `
+          )
+          .join("")}
+          
+        </div>
+      </div>
       </div>
     </section>
     `;
   }
 }
 
-customElements.define("section-a", SectionA);
-customElements.define("section-b", SectionB);
-customElements.define("section-c", SectionC);
-customElements.define("section-d", SectionD);
-customElements.define("section-e", SectionE);
-customElements.define("section-f", SectionF);
+customElements.define("blog-navbar", BlogNavbar);
+customElements.define("blog-item", BlogItem);
+customElements.define("blog-article", BlogArticle);
 
 class Blog extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
-    <section-a></section-a>
-    <section-b></section-b>
-    <section-c></section-c>
-    <section-d></section-d>
-    <section-e></section-e>
-    <section-f></section-f>
+    <blog-navbar></blog-navbar>
+    <div id="blog-outlet"></div>
     `;
+    this.blogRouter = new SimpleRouter("blog-outlet");
+    this.blogRouter.addRoute("/blog", "blog-item");
+    this.blogRouter.addRoute("/blog/article", "blog-article");
+    this.blogRouter.resolve();
   }
 }
 
