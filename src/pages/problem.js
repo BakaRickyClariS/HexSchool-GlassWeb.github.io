@@ -45,8 +45,9 @@ class Problem extends HTMLElement {
                 我想詢問配鏡問題
               </h1>
             </li>
-            ${qustItem.map(
-              (item) => `
+            ${qustItem
+              .map(
+                (item) => `
             <li>
               <h1 class="text-2xl md:text-xl xl:text-2xl font-bold pb-3">
                 ${item.title}
@@ -56,7 +57,8 @@ class Problem extends HTMLElement {
               </p>
             </li>
             `
-            )}
+              )
+              .join("")}
           </ul>
         </div>
       </div>
