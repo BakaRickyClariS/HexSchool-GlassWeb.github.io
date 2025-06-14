@@ -1,12 +1,12 @@
+import SimpleRouter from "./components/Router.js";
 import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
+import Pagination from "./components/Pagination.js";
 import Home from "./pages/home.js";
 import Shop from "./pages/shop.js";
 import Location from "./pages/location.js";
-import SimpleRouter from "./components/Router.js";
 import Problem from "./pages/problem.js";
 import Blog from "./pages/blog.js";
-import Pagination from "./components/Pagination.js";
 
 // 組件註冊
 customElements.define("my-navbar", Navbar);
