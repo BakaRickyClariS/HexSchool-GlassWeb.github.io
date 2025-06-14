@@ -110,7 +110,7 @@ class BlogItem extends HTMLElement {
             <div class="md:flex hidden relative text-gray-400 ">
                 <p class="pt-3">${item.content}</p>
                 <a
-                class="xl:uppercase absolute right-0 bottom-0 xl:bottom-[-140px] xl:text-[#650300] xl:text-3xl xl:font-extrabold"
+                class="xl:uppercase absolute right-0 bottom-0 xl:bottom-[-140px] xl:text-[#650300] xl:text-3xl xl:font-extrabold hover:bg-[#650300] hover:text-white"
                 href="#/blog/article"
                 >more</a
               >

@@ -23,7 +23,7 @@ class Footer extends HTMLElement {
               <div class="flex flex-row space-x-5">
                 <img
                   class="h-[48px]"
-                  src="/images/ic-footer-tel.svg"
+                  src="images/ic-footer-tel.svg"
                   alt="tel"
                 />
                 <h1 class="text-4xl">0800-000-00</h1>
@@ -31,7 +31,7 @@ class Footer extends HTMLElement {
               <div class="flex flex-row space-x-5">
                 <img
                   class="h-[48px]"
-                  src="/images/ic-footer-mail.svg"
+                  src="images/ic-footer-mail.svg"
                   alt="tel"
                 />
                 <h1 class="text-4xl">glasses@business.com</h1>
@@ -42,15 +42,15 @@ class Footer extends HTMLElement {
           <div class="flex flex-row space-x-5 lg:space-x-10 xl:space-x-15">
             <img
               class="h-[48px]"
-              src="/images/ic-social-fb.png"
+              src="images/ic-social-fb.png"
               alt="Facebook"
             /><img
               class="h-[48px]"
-              src="/images/ic_social_ig.png"
+              src="images/ic_social_ig.png"
               alt="Instagram"
             /><img
               class="h-[48px]"
-              src="/images/ic_social_line.png"
+              src="images/ic_social_line.png"
               alt="Line"
             />
           </div>
