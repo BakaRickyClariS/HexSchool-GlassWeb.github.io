@@ -1,104 +1,196 @@
-﻿# HexSchool-GlassWeb
+# HexSchool-GlassWeb 眼鏡電商網站
 
-專案概述
-這是一個眼鏡電商網站的前端專案，採用現代化的 Web 技術棧建構，實現了單頁應用程式（SPA）的功能。專案使用 98.7% 的 JavaScript 和 1.3% 的 HTML，顯示了以 JavaScript 為主導的前端架構。
+![GitHub](https://img.shields.io/badge/GitHub-HexSchool--GlassWeb-blue?style=flat-square&logo=github)
+![JavaScript](https://img.shields.io/badge/JavaScript-98.7%25-yellow?style=flat-square&logo=javascript)
+![HTML](https://img.shields.io/badge/HTML-1.3%25-orange?style=flat-square&logo=html5)
 
-核心技術架構
-HTML 結構
-HTML5 標準：使用 <!DOCTYPE html> 聲明，採用標準的 HTML5 語法
+## 📖 專案概述
 
-響應式設計：透過 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 設定支援響應式佈局
+**HexSchool-GlassWeb** 是一個現代化的眼鏡電商網站前端專案，採用**原生 Web Components** 技術建構，實現了完整的單頁應用程式（SPA）功能。專案以 JavaScript 為主導（98.7%），展現了純原生技術的強大實作能力。
 
-UTF-8 編碼：使用 <meta charset="utf-8"/> 確保字符編碼正確
+## 🚀 核心技術架構
 
-SPA 架構：主要內容透過 <div id="outlet"></div> 作為動態渲染的掛載點
+### 🏗️ HTML 基礎架構
+- **HTML5 標準** - 使用現代化的 HTML5 語法規範
+- **響應式設計** - 透過 viewport meta 標籤支援多裝置適配
+- **UTF-8 編碼** - 確保國際化字符正確顯示
+- **SPA 架構** - 單一 `<div id="outlet"></div>` 作為動態渲染容器
 
-CSS 框架與樣式
-Tailwind CSS：採用 @tailwindcss/browser@4 的瀏覽器版本，提供原子化的 CSS 類別系統
+### 🎨 樣式與設計系統
+- **Tailwind CSS v4** - 採用最新版本的原子化 CSS 框架
+- **Google Fonts** - 整合 Google 字體服務提升視覺效果
+- **響應式圖片** - 多尺寸圖片資源支援不同裝置最佳化顯示
+- **現代化 UI** - 簡潔美觀的使用者介面設計
 
-Google Fonts：整合 Google Fonts 服務，透過 fonts.googleapis.com 載入自定義字體
+### ⚡ JavaScript 核心技術
 
-響應式圖片：圖片資源包含多種尺寸版本（如 -sm 後綴），支援不同螢幕尺寸的最佳化顯示
+#### 模組化開發系統
+```javascript
+// ES6 模組化範例
+import { SimpleRouter } from './components/Router.js';
+import { Navbar } from './components/Navbar.js';
+```
 
-JavaScript 架構與技術
-模組化系統
-ES6 模組：使用 import/export 語法實現模組化開發
+- **ES6 模組系統** - 使用 `import/export` 實現程式碼模組化
+- **Web Components** - 原生 `customElements.define()` 創建自定義元素
+- **類別繼承** - 所有組件繼承自 `HTMLElement` 基類
 
-Web Components：採用原生 customElements.define() API 創建自定義 HTML 元素
+#### 🗺️ 路由系統
+- **自製路由器** - 開發 `SimpleRouter` 類別處理 SPA 導航
+- **Hash 路由** - 基於 `window.location.hash` 的客戶端路由
+- **嵌套路由** - 支援多層級子路由功能
+- **動態渲染** - 智能組件載入與切換機制
 
-類別繼承：所有組件都繼承自 HTMLElement 類別，實現標準的 Web Components 規範
+## 🧩 組件架構
 
-路由系統
-自製路由器：開發了 SimpleRouter 類別處理 SPA 路由邏輯
+### 核心系統組件
+| 組件名稱 | 功能描述 | 特色 |
+|---------|----------|------|
+| `Navbar` | 導航列組件 | 響應式選單、路由導航 |
+| `Footer` | 頁尾組件 | 聯絡資訊、社群媒體連結 |
+| `Pagination` | 分頁組件 | 互動式頁碼、狀態管理 |
+| `Router` | 路由管理 | SPA 導航、組件切換 |
 
-Hash 路由：使用 window.location.hash 實現客戶端路由導航
+### 業務頁面組件
+- **🏠 Home** - 首頁展示（含 `HomeMain`、`HomeIntro`、`HomeClassic` 等子組件）
+- **🛍️ Shop** - 商店頁面（`ShopOptical`、`ShopSunglasses`、`ShopFunctional`）
+- **📍 Location** - 門市據點（Google Maps 整合）
+- **📝 Blog** - 部落格系統（文章列表、詳細頁面）
+- **❓ Problem** - 常見問題（FAQ 互動功能）
 
-嵌套路由：支援子路由功能，如商店和部落格頁面的子分類
+## 💾 資料管理與互動
 
-動態組件渲染：透過 innerHTML 動態插入對應的組件標籤
+### 狀態管理策略
+- **組件內狀態** - 如分頁組件的 `currentPage` 狀態追蹤
+- **事件系統** - `CustomEvent` 實現組件間解耦通訊
+- **DOM 操作** - 現代化的 DOM 查詢與事件處理
 
-組件架構
-專案採用組件化開發模式，主要分為以下類別：
+### 動態內容渲染
+```javascript
+// 模板字符串範例
+render() {
+  return `
+    <div class="container mx-auto px-4">
+      ${this.items.map(item => `<div>${item.name}</div>`).join('')}
+    </div>
+  `;
+}
+```
 
-核心組件
+- **模板字符串** - ES6 Template Literals 生成動態 HTML
+- **陣列映射** - `Array.map()` 高效渲染列表內容
+- **條件渲染** - 基於路由狀態的智能內容切換
 
-Navbar：導航列組件，提供主要頁面連結
+## 🌐 外部服務整合
 
-Footer：頁尾組件，包含聯絡資訊和社群媒體連結
+### 第三方服務
+- **Google Maps** - 嵌入式地圖顯示門市位置
+- **jsDelivr CDN** - 高效能的靜態資源載入
+- **Google Fonts** - 豐富的字體資源庫
 
-Pagination：分頁組件，具備互動式頁碼切換功能
+### 圖片資源管理
+```
+images/
+├── home-header.png          # 首頁主視覺
+├── product-*.png            # 商品展示圖
+├── blog-*.png               # 部落格配圖
+├── store-*.png              # 門市據點圖
+└── icons/                   # SVG/PNG 圖示集
+```
 
-Router：路由管理組件，處理頁面導航邏輯
+## ✨ 開發特色與優勢
 
-頁面組件
+### 🎯 技術亮點
+- **純原生實現** - 無第三方框架依賴，展現原生技術實力
+- **現代化語法** - 全面採用 ES6+ 新特性
+- **組件化架構** - 高度模組化的開發模式
+- **響應式設計** - 完美適配各種裝置尺寸
 
-Home：首頁組件，包含多個子組件如 HomeMain、HomeIntro、HomeClassic 等
+### 🏆 架構優勢
+- **高效能** - 原生實現確保最佳載入速度
+- **可維護性** - 清晰的組件分離與模組化設計
+- **擴展性** - 靈活的路由系統支援功能擴展
+- **標準化** - 遵循 Web Standards 最佳實踐
 
-Shop：商店頁面，包含 ShopOptical、ShopSunglasses、ShopFunctional 等子組件
+## 🛠️ 開發環境
 
-Location：門市據點頁面，整合 Google Maps 嵌入功能
+### 技術需求
+- **瀏覽器支援** - 現代瀏覽器（支援 ES6+ 與 Web Components）
+- **開發工具** - 任何支援 ES6 模組的現代編輯器
+- **部署平台** - 靜態網站託管服務（GitHub Pages、Netlify 等）
 
-Blog：部落格頁面，支援文章列表和詳細頁面
+### 專案結構
+```
+HexSchool-GlassWeb/
+├── index.html              # 主要 HTML 檔案
+├── components/             # 組件目錄
+│   ├── Router.js          # 路由管理
+│   ├── Navbar.js          # 導航組件
+│   └── ...                # 其他組件
+├── images/                # 圖片資源
+└── README.md              # 專案說明
+```
 
-Problem：常見問題頁面，提供 FAQ 功能
+## 🚀 快速開始
 
-資料管理與互動功能
-狀態管理
-組件內狀態：如 Pagination 组件的 currentPage 狀態管理
+### 安裝與運行
+```bash
+# 克隆專案
+git clone https://github.com/BakaRickyClariS/HexSchool-GlassWeb.github.io.git
 
-事件系統：使用 CustomEvent 實現組件間通訊，如 location-change 事件
+# 進入專案目錄
+cd HexSchool-GlassWeb.github.io
 
-DOM 操作：透過 querySelector 和 addEventListener 處理用戶互動
+# 使用任何靜態伺服器運行（例如 Live Server）
+# 或直接開啟 index.html 檔案
+```
 
-動態內容渲染
-模板字符串：使用 ES6 的模板字符串（Template Literals）生成 HTML 內容
+### 開發指南
+1. 所有組件放置於 `components/` 目錄
+2. 圖片資源統一管理於 `images/` 目錄
+3. 新增頁面需要在 `Router.js` 中註冊路由
+4. 遵循 Web Components 標準進行開發
 
-陣列映射：透過 Array.map() 方法動態渲染列表內容
+## 📱 功能特色
 
-條件渲染：根據路由狀態動態顯示不同的組件內容
+### 主要功能
+- ✅ 響應式設計適配所有裝置
+- ✅ 單頁應用程式（SPA）流暢體驗
+- ✅ 產品瀏覽與分類展示
+- ✅ 門市據點地圖整合
+- ✅ 部落格文章系統
+- ✅ 常見問題 FAQ
+- ✅ 現代化的使用者介面
 
-外部服務整合
-Google Maps：整合 Google Maps 嵌入式地圖功能，支援門市位置顯示
+### 技術特色
+- ⚡ 純原生 JavaScript 實現
+- 🎨 Tailwind CSS 原子化樣式
+- 📱 完整響應式設計
+- 🔧 模組化組件架構
+- 🗺️ 自製路由系統
 
-CDN 資源：透過 jsDelivr CDN 載入 Tailwind CSS 框架
+## 📄 授權條款
 
-開發特色
-技術優勢
-純原生實現：不依賴 React、Vue 等第三方框架，使用原生 Web Components 技術
+本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 檔案
 
-模組化設計：良好的組件分離和模組化架構
+## 🤝 貢獻指南
 
-響應式設計：結合 Tailwind CSS 實現完整的響應式佈局
+歡迎提交 Issue 和 Pull Request 來改善這個專案！
 
-現代化語法：使用 ES6+ 的現代 JavaScript 語法特性
+## 📞 聯絡資訊
 
-架構特點
-單頁應用：完整的 SPA 功能實現
+- **開發者**: BakaRickyClariS
+- **GitHub**: [BakaRickyClariS](https://github.com/BakaRickyClariS)
+- **專案連結**: [HexSchool-GlassWeb](https://github.com/BakaRickyClariS/HexSchool-GlassWeb.github.io)
 
-組件化開發：每個功能模組都封裝為獨立組件
+---
 
-路由管理：自製路由系統支援複雜的頁面導航
+**🔗 相關連結**
+- [專案 GitHub 倉庫](https://github.com/BakaRickyClariS/HexSchool-GlassWeb.github.io)
+- [線上展示網站](https://bakariclyclaris.github.io/HexSchool-GlassWeb.github.io/)
 
-事件驅動：使用事件系統實現組件間的解耦通訊
+---
 
-這個專案展現了使用原生 Web 技術建構現代化網站的能力，在不依賴複雜框架的情況下，實現了完整的電商網站功能。
+<div align="center">
+  <b>⭐ 如果這個專案對您有幫助，請給個星星支持一下！⭐</b>
+</div>
