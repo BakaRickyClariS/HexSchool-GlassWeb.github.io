@@ -169,14 +169,6 @@ cd HexSchool-GlassWeb.github.io
 - 🔧 模組化組件架構
 - 🗺️ 自製路由系統
 
-## 📄 授權條款
-
-本專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 檔案
-
-## 🤝 貢獻指南
-
-歡迎提交 Issue 和 Pull Request 來改善這個專案！
-
 ## 📞 聯絡資訊
 
 - **開發者**: BakaRickyClariS
@@ -194,3 +186,4 @@ cd HexSchool-GlassWeb.github.io
 <div align="center">
   <b>⭐ 如果這個專案對您有幫助，請給個星星支持一下！⭐</b>
 </div>
+
